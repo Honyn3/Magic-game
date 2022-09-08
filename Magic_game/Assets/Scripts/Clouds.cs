@@ -12,6 +12,8 @@ public class Clouds : MonoBehaviour
     public Rigidbody2D Spawner3;
     public Rigidbody2D Spawner4;
 
+    private Transform[] spawnerPos = new Transform[4];
+
     public float spawnX;
 
     private float[] Speed = new float[] {200, 200, 200, 200 };
@@ -19,6 +21,34 @@ public class Clouds : MonoBehaviour
     void Start()
     {
         spawnX = Spawner1.transform.position.x;
+        spawnerPos[0] = Spawner1.transform;
+        spawnerPos[1] = Spawner2.transform;
+        spawnerPos[2] = Spawner3.transform;
+        spawnerPos[3] = Spawner4.transform;
+    }
+
+    private void Update()
+    {
+        Debug.Log("Spawner: "+spawnerPos[0].position);
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            Debug.Log("Touch: " + touchPos);
+            touchPos.z = 0;
+
+            foreach (Transform pos in spawnerPos)
+            {
+                //Vector2 p = Camera.main.ScreenToWorldPoint(pos.position);
+
+                if(touchPos.x > pos.position.x - 1 && touchPos.x < pos.position.x + 1 && touchPos.y > pos.position.y - 1 && touchPos.y < pos.position.y + 1)
+                {
+                    pos.position = touchPos;
+                }
+            }
+
+        }
+        
     }
 
     // Update is called once per frame
