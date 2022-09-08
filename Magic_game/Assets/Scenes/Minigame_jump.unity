@@ -176,7 +176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 918116514}
+  shield: {fileID: 1680163682}
   player: {fileID: 145138907}
+  Speed: 200.01
+  ShieldMoveSpeed: 120
+  ShieldTarget: {x: 0, y: 0}
 --- !u!212 &145138909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -423,6 +427,7 @@ GameObject:
   - component: {fileID: 1680163680}
   - component: {fileID: 1680163679}
   - component: {fileID: 1680163681}
+  - component: {fileID: 1680163682}
   m_Layer: 0
   m_Name: Shield1
   m_TagString: Untagged
@@ -517,3 +522,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1680163682
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680163678}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
